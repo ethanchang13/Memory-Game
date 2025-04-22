@@ -1,0 +1,54 @@
+body {
+  background: url("imgs/mario-background.png") no-repeat center center fixed;
+  background-size: cover;
+  background-position: rel;
+  font-family: "Press Start 2P", cursive;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  margin-top: 15vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 0 20px #ffcc00;
+  opacity: 1.6;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #ffcc00;
+  text-shadow: 2px 2px #000;
+}
+
+p {
+  font-size: 0.8rem;
+  margin-top: 20px;
+}
+
+.start-btn {
+  margin-top: 30px;
+  background-color: #ff4757;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.start-btn:hover {
+  background-color: #e84118;
+  transform: scale(1.1);
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+  .start-btn {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
+}
