@@ -1,0 +1,97 @@
+body {
+  background: url("../imgs/mario-background.png") no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Press Start 2P", cursive;
+  color: white;
+}
+
+/* Navbar styling */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+}
+
+.navbar-brand img {
+  margin-right: 10px;
+}
+
+.nav-link {
+  color: white;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ffcc00;
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Content styling */
+h1 {
+  font-size: 2rem;
+  color: #ffcc00;
+  text-shadow: 2px 2px #000;
+  margin-bottom: 30px;
+}
+
+.instruction-card {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 3px solid #ffcc00;
+  border-radius: 10px;
+  height: 100%;
+}
+
+.card-title {
+  color: #ffcc00;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.card-text {
+  color: #ffffff;
+  font-size: 0.7rem;
+  line-height: 1.6;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.start-btn {
+  background-color: #ff4757;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.start-btn:hover {
+  background-color: #e84118;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .card-title {
+    font-size: 0.8rem;
+  }
+
+  .card-text {
+    font-size: 0.6rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .start-btn {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
+}
