@@ -47,6 +47,8 @@ var secondGuess = "";
 var count = 0;
 var previousTarget = null;
 var delay = 1200;
+var matchCount = 0;
+var totalPairs = names.length;
 
 var game = document.getElementById("game");
 var grid = document.createElement("section");
@@ -76,6 +78,19 @@ function match() {
   for (var i = 0; i < selected.length; i++) {
     selected[i].classList.add("match");
   }
+
+  // Increment match count and check if game is completed
+  matchCount++;
+  if (matchCount === totalPairs) {
+    setTimeout(showCompletionModal, 500);
+  }
+}
+
+function showCompletionModal() {
+  var completionModal = new bootstrap.Modal(
+    document.getElementById("completionModal")
+  );
+  completionModal.show();
 }
 
 function resetGuesses() {
