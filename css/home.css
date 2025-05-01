@@ -1,3 +1,4 @@
+/* Global page layout and theme */
 body {
   background: url("../imgs/mario-background.png") no-repeat center center fixed;
   background-size: cover;
@@ -67,6 +68,7 @@ body {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
+/* Main content container */
 .container {
   margin-top: 15vh;
   background-color: rgba(0, 0, 0, 0.6);
@@ -76,17 +78,20 @@ body {
   opacity: 1.6;
 }
 
+/* Page title */
 h1 {
   font-size: 2rem;
   color: #ffcc00;
   text-shadow: 2px 2px #000;
 }
 
+/* Subtext or description */
 p {
   font-size: 0.8rem;
   margin-top: 20px;
 }
 
+/* Button to start the game */
 .start-btn {
   margin-top: 30px;
   background-color: #ff4757;
@@ -103,6 +108,7 @@ p {
   transform: scale(1.1);
 }
 
+/* Responsive tweaks for mobile layout */
 @media (max-width: 576px) {
   h1 {
     font-size: 1.2rem;

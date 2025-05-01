@@ -1,3 +1,4 @@
+// List of character names used for matching logic
 var names = [
   "shell",
   "star",
@@ -13,6 +14,7 @@ var names = [
   "goomba",
 ];
 
+// Corresponding image paths for each character
 var imgs = [
   "imgs/blueshell.png",
   "imgs/star.png",
@@ -28,10 +30,11 @@ var imgs = [
   "imgs/goomba.png",
 ];
 
+// Duplicate each item to create matching pairs
 var namesFull = names.concat(names);
 var imgsFull = imgs.concat(imgs);
 
-// Shuffle
+// Shuffle the cards using randomization algorithm
 for (var i = namesFull.length - 1; i > 0; i--) {
   var j = Math.floor(Math.random() * (i + 1));
   var tempName = namesFull[i];
@@ -42,6 +45,7 @@ for (var i = namesFull.length - 1; i > 0; i--) {
   imgsFull[j] = tempImg;
 }
 
+// Game state variables
 var firstGuess = "";
 var secondGuess = "";
 var count = 0;
@@ -50,12 +54,13 @@ var delay = 1200;
 var matchCount = 0;
 var totalPairs = names.length;
 
+// Create grid and attach to game container
 var game = document.getElementById("game");
 var grid = document.createElement("section");
 grid.setAttribute("class", "grid");
 game.appendChild(grid);
 
-// Create cards
+// Dynamically generate card elements and add them to the grid
 for (var i = 0; i < namesFull.length; i++) {
   var card = document.createElement("div");
   card.className = "card";
@@ -73,19 +78,22 @@ for (var i = 0; i < namesFull.length; i++) {
   grid.appendChild(card);
 }
 
+// Add .match class to matched cards and check for game completion
 function match() {
   var selected = document.querySelectorAll(".selected");
   for (var i = 0; i < selected.length; i++) {
     selected[i].classList.add("match");
   }
 
-  // Increment match count and check if game is completed
   matchCount++;
+
+  // If all pairs are matched, show the completion modal
   if (matchCount === totalPairs) {
     setTimeout(showCompletionModal, 500);
   }
 }
 
+// Show Bootstrap modal to indicate game completion
 function showCompletionModal() {
   var completionModal = new bootstrap.Modal(
     document.getElementById("completionModal")
@@ -93,6 +101,7 @@ function showCompletionModal() {
   completionModal.show();
 }
 
+// Reset guesses and clear selected cards
 function resetGuesses() {
   firstGuess = "";
   secondGuess = "";
@@ -105,9 +114,11 @@ function resetGuesses() {
   }
 }
 
+// Main event listener for handling card clicks and game logic
 grid.addEventListener("click", function (event) {
   var clicked = event.target;
 
+  // Ignore invalid clicks: background, same card, already selected or matched
   if (
     clicked.nodeName === "SECTION" ||
     clicked === previousTarget ||
@@ -117,22 +128,29 @@ grid.addEventListener("click", function (event) {
     return;
   }
 
+  // Allow only 2 cards to be selected at a time
   if (count < 2) {
     count++;
+
     if (count === 1) {
+      // First card selected
       firstGuess = clicked.parentNode.getAttribute("data-name");
       clicked.parentNode.classList.add("selected");
     } else {
+      // Second card selected
       secondGuess = clicked.parentNode.getAttribute("data-name");
       clicked.parentNode.classList.add("selected");
     }
 
+    // If two cards have been selected, check for a match
     if (firstGuess !== "" && secondGuess !== "") {
       if (firstGuess === secondGuess) {
-        setTimeout(match, delay);
+        setTimeout(match, delay); // Match found
       }
-      setTimeout(resetGuesses, delay);
+      setTimeout(resetGuesses, delay); // Always reset guesses
     }
+
+    // Store the last clicked element to avoid double-click matching
     previousTarget = clicked;
   }
 });
